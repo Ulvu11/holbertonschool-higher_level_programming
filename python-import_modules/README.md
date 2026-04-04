@@ -1,0 +1,1 @@
+This project covers the fundamental concepts of Python programming, including conditional statements (if, else), loops (while, for), and the definition and usage of functions. It also emphasizes the importance of the ASCII table and character manipulation without using built-in string methods.
