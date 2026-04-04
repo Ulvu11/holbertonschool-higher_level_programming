@@ -1,0 +1,1 @@
+This project marks the beginning of conditional logic and control flow in Python. It covers the use of if, elif, and else statements, as well as the fundamentals of loops and functions. The goal is to master how a program makes decisions and repeats tasks efficiently.
