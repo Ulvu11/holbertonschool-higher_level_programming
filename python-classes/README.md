@@ -1,0 +1,1 @@
+This topic teaches the fundamental principles of Object-Oriented Programming (OOP) in Python, specifically focusing on the distinction between class and instance attributes, and the implementation of data encapsulation through access modifiers.
