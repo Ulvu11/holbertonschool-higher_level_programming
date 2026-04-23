@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """This script fetches a specific URL status using urllib"""
+import urllib
 if __name__ == "__main__":
     url = 'https://intranet.hbtn.io/status'
 
