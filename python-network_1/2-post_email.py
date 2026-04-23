@@ -16,7 +16,7 @@ def post_email(url, email):
 
 
 def main():
-    """Get the URL and email from the command line and send the request"""
+    """Get the URL and email and send the request"""
     url = sys.argv[1]
     email = sys.argv[2]
     post_email(url, email)
