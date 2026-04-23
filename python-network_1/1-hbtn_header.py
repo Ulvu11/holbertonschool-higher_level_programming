@@ -3,7 +3,7 @@
 import sys
 import urllib.request
 
-def fetch_request_id(url):
+def fetch_request_id(url = "https://intranet.hbtn.io"):
         request = urllib.request.Request(
         url,
         headers={"'cfclearance'": "true"}
