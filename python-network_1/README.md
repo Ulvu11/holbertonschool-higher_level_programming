@@ -1,0 +1,1 @@
+A Python-based utility that interfaces with web resources to retrieve and analyze response body data. This script serves as an exercise in network communication, data decoding, and professional PEP 8 compliance.
