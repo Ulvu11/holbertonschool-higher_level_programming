@@ -6,7 +6,7 @@ import urllib.request
 import urllib.parse
 
 
-def post_email(url, email):
+def Post_email(url, email):
     """Send a POST request with the email parameter and print the response"""
     data = urllib.parse.urlencode({"email": email})
     data = data.encode("utf-8")
