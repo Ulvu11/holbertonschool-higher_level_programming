@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""
-Script that sends a POST request to search for users by letter.
-"""
+"""Script that sends a POST request to search for users by letter"""
 
 import requests
 import sys
