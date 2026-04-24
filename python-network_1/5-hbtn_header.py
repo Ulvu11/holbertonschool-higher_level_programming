@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""A script that fetches a URL and displays the value of the X-Request-Id header."""
+"""Fetches a URL and displays the value of the X-Request-Id header"""
 import sys
 import requests
 
