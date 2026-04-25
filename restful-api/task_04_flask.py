@@ -1,16 +1,13 @@
 from flask import Flask, jsonify, request
 
 # Create the Flask application
-# __name__ tells Flask the name of this file
 app = Flask(__name__)
 
 # -------------------------------------------------------
-# Dictionary to store users in memory
+# Empty dictionary to store users in memory
 # username is the key, user details are the value
 # -------------------------------------------------------
-users = {
-    "jane": {"name": "Jane", "age": 28, "city": "Los Angeles"}
-}
+users = {}
 
 
 # -------------------------------------------------------
@@ -18,17 +15,17 @@ users = {
 # -------------------------------------------------------
 @app.route("/")
 def home():
-    # Return a simple welcome message
     return "Welcome to the Flask API!"
 
 
 # -------------------------------------------------------
 # ENDPOINT 2: All users - GET /data
+# Returns list of all usernames
 # -------------------------------------------------------
 @app.route("/data")
 def get_data():
-    # Return the users dictionary in JSON format
-    return jsonify(users)
+    # Return just the list of usernames (keys)
+    return jsonify(list(users.keys()))
 
 
 # -------------------------------------------------------
@@ -41,15 +38,15 @@ def status():
 
 # -------------------------------------------------------
 # ENDPOINT 4: Single user - GET /users/<username>
-# <username> is dynamic - whatever the user types
-# gets passed as a variable to the function
-# Example: /users/jane -> username = "jane"
+# Returns full user object including username field
 # -------------------------------------------------------
 @app.route("/users/<username>")
 def get_user(username):
     if username in users:
-        # User found - return their data
-        return jsonify(users[username])
+        # Return user data including the username field
+        user_data = {"username": username}
+        user_data.update(users[username])
+        return jsonify(user_data)
     else:
         # User not found - return 404 error
         return jsonify({"error": "User not found"}), 404
@@ -57,11 +54,10 @@ def get_user(username):
 
 # -------------------------------------------------------
 # ENDPOINT 5: Add new user - POST /add_user
-# POST is used for sending data (not GET)
 # -------------------------------------------------------
 @app.route("/add_user", methods=["POST"])
 def add_user():
-    # request.get_json() retrieves the incoming JSON data
+    # Retrieve the incoming JSON data
     data = request.get_json()
 
     # If the sent data is not valid JSON
@@ -84,8 +80,12 @@ def add_user():
         "city": data.get("city")
     }
 
-    # Return a success response
-    return jsonify({"message": "User added", "user": users[username]}), 201
+    # Build response with username included
+    user_response = {"username": username}
+    user_response.update(users[username])
+
+    # Return a success response with 201 status
+    return jsonify({"message": "User added", "user": user_response}), 201
 
 
 # -------------------------------------------------------
